@@ -14,9 +14,9 @@ function rhs(u, p, t)
     return [ω, -p[1] * sin(θ)]
 end
 
-u0 = rand(2)
+u0 = ones(2)
 tspan = (0.0, 0.1)
-p = rand(10000)
+p = ones(10000)  # Dummy params
 
 prob = ODEProblem(rhs, u0, tspan, p)
 
