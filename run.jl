@@ -10,15 +10,13 @@ GC.enable_logging(true)
 using OrdinaryDiffEq, SciMLSensitivity, Zygote
 
 function rhs(u, p, t)
-    x, y, z = u
-    σ, β, ρ = p[1:3]
-    return [σ * (y - x), x * (ρ - z) - y, x * y - β * z]
+    θ, ω = u
+    return [ω, -p[1] * sin(θ)]
 end
 
-u0 = rand(3)
+u0 = rand(2)
 tspan = (0.0, 0.1)
 p = rand(10000)
-p[1:3] = [10.0, 8 / 3, 28.0]
 
 prob = ODEProblem(rhs, u0, tspan, p)
 
