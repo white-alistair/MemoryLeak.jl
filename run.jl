@@ -1,6 +1,6 @@
 using InteractiveUtils
 versioninfo()
-flush(stdout)
+flush(stdout)  # So it actually gets logged on the cluster
 
 GC.enable_logging(true)
 
