@@ -1,5 +1,6 @@
 using InteractiveUtils
 versioninfo()
+flush(stdout)
 
 GC.enable_logging(true)
 
