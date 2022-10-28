@@ -1,6 +1,10 @@
-using OrdinaryDiffEq, Zygote, SciMLSensitivity
-
 GC.enable_logging(true)
+
+# Uncomment these lines if running in a Docker container
+# using Pkg
+# Pkg.instantiate()
+
+using OrdinaryDiffEq, SciMLSensitivity, Zygote
 
 function rhs(u, p, t)
     x, y, z = u
