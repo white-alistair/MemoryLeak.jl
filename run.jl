@@ -1,3 +1,6 @@
+using InteractiveUtils
+versioninfo()
+
 GC.enable_logging(true)
 
 # Uncomment these lines if running in a Docker container
