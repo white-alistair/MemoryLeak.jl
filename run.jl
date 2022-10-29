@@ -21,9 +21,18 @@ p = ones(10000)  # Dummy params
 
 prob = ODEProblem(rhs, u0, tspan, p)
 
+iter = 0
 while true
+    global iter += 1
+
     gradients = Zygote.gradient(Zygote.Params([p])) do
         sol = solve(prob, Tsit5())
         return sol[1][1]
+    end
+
+    if (iter % 1000) == 0
+        @info "Free memory" Sys.free_memory() / 2^30
+        @info "Free physical memory" Sys.free_physical_memory() / 2^30
+        flush(stderr)
     end
 end
